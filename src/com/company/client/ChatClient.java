@@ -66,7 +66,7 @@ public class ChatClient {
                             for(Message message : messageController.getMessages(loggedInUser)){
                                 System.out.println(message.toString() + "\n");
                             }
-                        } catch (NullPointerException ex){
+                        } catch (NullPointerException | RemoteException ex2 ){
                             System.out.println("There are no received messages!");
                         }
 
@@ -83,7 +83,13 @@ public class ChatClient {
 
                         Message toBeSentMessage = new Message(loggedInUser, receivers, message);
 
-                        messageController.sentMessage(toBeSentMessage);
+                        try
+                        {
+                            messageController.sendMessage(toBeSentMessage);
+                        } catch (RemoteException e)
+                        {
+                            System.out.println("Sending message failed!");
+                        }
 
                         sentMessages.add(toBeSentMessage);
                         break;
