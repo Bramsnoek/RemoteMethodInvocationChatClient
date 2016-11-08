@@ -26,14 +26,14 @@ public class MessageController extends UnicastRemoteObject implements IMessageCo
 		List<Message> messages = Collections.unmodifiableList(
 				allMessages.parallelStream()
 						.filter(m -> m.getSender()
-								.getName() == user.getName())
+								.getName().equals(user.getName()))
 						.collect(Collectors.toList()));
 
 		if(messages.size() == 0){
 			return null;
 		}
 
-		return messages
+		return messages;
 	}
 
 	@Override
