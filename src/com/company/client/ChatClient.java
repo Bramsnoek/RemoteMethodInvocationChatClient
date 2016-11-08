@@ -28,7 +28,7 @@ public class ChatClient {
     {
         bindingName = "chatClient";
         portNumber = 1099;
-        ipAddress = "145.93.80.82";
+        ipAddress = "localhost";
         loggedInUser = new User(1, "Bram");
 
         try {
@@ -72,7 +72,8 @@ public class ChatClient {
 
                         break;
                     case 3:
-                        System.out.println("Enter your message and then the name of the receiving user : ");
+                        System.out.println("Enter your message and then the name of the receiving user :");
+                        scanner.nextLine();
                         String message = scanner.nextLine();
                         String userName = scanner.nextLine();
 
