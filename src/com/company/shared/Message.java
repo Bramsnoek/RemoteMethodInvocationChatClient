@@ -47,8 +47,8 @@ public class Message implements Serializable {
     public String toString()
     {
         return "Message{" +
-                "sender=" + sender +
-                ", receivers=" + receivers +
+                "sender=" + sender.getName() +
+                ", receivers=" + receivers.get(0).getName() +
                 ", text='" + text + '\'' +
                 ", date=" + date +
                 '}';
