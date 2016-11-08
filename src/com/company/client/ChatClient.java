@@ -72,16 +72,16 @@ public class ChatClient {
 
                         break;
                     case 3:
-                        System.out.println("Enter your message : ");
+                        System.out.println("Enter your message and then the name of the receiving user : ");
                         String message = scanner.nextLine();
-
-                        System.out.println("Enter the name of the receiving user: ");
                         String userName = scanner.nextLine();
 
                         ArrayList<User> receivers = new ArrayList<>();
                         receivers.add(new User(2, userName));
 
                         Message toBeSentMessage = new Message(loggedInUser, receivers, message);
+
+                        System.out.println("Message sent: \n" + toBeSentMessage.toString());
 
                         try
                         {
