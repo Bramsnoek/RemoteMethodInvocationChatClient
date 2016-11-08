@@ -26,7 +26,7 @@ public class ChatClient {
 
     public static void main(String[] args)
     {
-        bindingName = "chatclient";
+        bindingName = "chatClient";
         portNumber = 1099;
         ipAddress = "";
         loggedInUser = new User(1, "Bram");
