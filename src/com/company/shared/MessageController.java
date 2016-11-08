@@ -3,9 +3,9 @@ package com.company.shared;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
+
+
 
 /**
  * Coded by Ferry on 8-11-2016.
@@ -23,17 +23,23 @@ public class MessageController extends UnicastRemoteObject implements IMessageCo
 			return null;
 		}
 
-		List<Message> messages = Collections.unmodifiableList(
-				allMessages.parallelStream()
-						.filter(m -> m.getSender()
-								.getName().equals(user.getName()))
-						.collect(Collectors.toList()));
+		List<Message> messages = new ArrayList<>();
+		for(Message message : allMessages){
+			for(User receiveUser : message.getReceivers()){
+				if(receiveUser.getName().equals(user.getName())){
+					messages.add(message);
+				}
+			}
+		}
 
 		if(messages.size() == 0){
 			return null;
 		}
 
 		return messages;
+
+
+
 	}
 
 	@Override

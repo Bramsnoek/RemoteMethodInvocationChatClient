@@ -4,7 +4,6 @@ import com.company.shared.IMessageController;
 import com.company.shared.Message;
 import com.company.shared.User;
 
-import java.io.IOException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -28,8 +27,8 @@ public class ChatClient {
     {
         bindingName = "chatClient";
         portNumber = 1099;
-        ipAddress = "localhost";
-        loggedInUser = new User(1, "Bram");
+        ipAddress = "145.93.52.185";
+        loggedInUser = new User(1, "Ferry");
 
         try {
             Registry registry = LocateRegistry.getRegistry(ipAddress, portNumber);
